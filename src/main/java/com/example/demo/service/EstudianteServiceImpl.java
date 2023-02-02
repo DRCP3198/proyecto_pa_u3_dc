@@ -3,6 +3,7 @@ package com.example.demo.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.modelo.Estudiante;
 import com.example.demo.repo.IEstudianteRepo;
 
 @Service
@@ -17,10 +18,36 @@ public class EstudianteServiceImpl implements IEstudianteService{
 		// TODO Auto-generated method stub
 		return this.estudianteRepo.buscarPorNombreQuery(nombre);
 	}
+	@Override
+	public void agregar(Estudiante estudiante) {
+		// TODO Auto-generated method stub
+		this.estudianteRepo.insertar(estudiante);
+		
+	}
+
 
 	@Override
 	public Estudiante encontrarPorApellido(String apellido) {
 		// TODO Auto-generated method stub
-		return this.encontrarPorApellido(apellido);
+		return this.estudianteRepo.buscarPorApellidoQuery(apellido);
+	}
+
+	
+	@Override
+	public Estudiante encontrarPorCedula(String cedula) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.buscarPorCedulaQuery(cedula);
+	}
+
+	@Override
+	public Estudiante encontrarPorGenero(String genero) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.buscarPorGeneroQuery(genero);
+	}
+
+	@Override
+	public Estudiante encontrarPorCiudad(String ciudad) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.buscarPorCiudadQuery(ciudad);
 	}
 }

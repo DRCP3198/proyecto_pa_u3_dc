@@ -34,9 +34,44 @@ public class EstudianteRepoImpl  implements IEstudianteRepo{
 	@Override
 	public Estudiante buscarPorApellidoQuery(String apellido) {
 		// TODO Auto-generated method stub
-		
-		
-		return null;
+		//Query normal: select *from estudiante where estu_apellido = "Coloma";
+		Query jpqlQuery = this.entityManager.createQuery("select e from Estudiante e where e.apellido = :datoApellido");
+		jpqlQuery.setParameter("datoApellido", apellido);
+		return (Estudiante)jpqlQuery.getSingleResult();
+	}
+	
+	@Override
+	public Estudiante buscarPorCedulaQuery(String cedula) {
+		// TODO Auto-generated method stub
+		//select * from estudiante where estu_cedula =""; 
+		Query jpqlQuery = this.entityManager.createQuery("select e from Estudiante e where e.cedula = :datoGenero");
+		jpqlQuery.setParameter("datoGenero",cedula);
+		return (Estudiante)jpqlQuery.getSingleResult() ;
 	}
 
+	@Override
+	public Estudiante buscarPorCiudadQuery(String ciudad) {
+		// TODO Auto-generated method stub
+		//select * from estudiante where estu_ciudad = "Quito"
+		Query jpqlQuery = this.entityManager.createQuery("select e from Estudiante e where e.ciudad = :datoCiudad");
+		jpqlQuery.setParameter("datoCiudad", ciudad);
+		return (Estudiante)jpqlQuery.getSingleResult();
+	}
+
+	@Override
+	public Estudiante buscarPorGeneroQuery(String genero) {
+		// TODO Auto-generated method stub
+		//select * from estudiante where estu_genero = "masculino"
+		Query jpqlQuery = this.entityManager.createQuery("select e from Estudiante e where e.genero = :datoGenero");
+		jpqlQuery.setParameter("datoGenero", genero);
+		return (Estudiante)jpqlQuery.getSingleResult();
+	}
+	
+	@Override
+	public void insertar(Estudiante estudiante) {
+		// TODO Auto-generated method stub
+		this.entityManager.persist(estudiante);
+	}
+
+	
 }

@@ -27,25 +27,48 @@ public class ProyectoPaU3DcApplication implements CommandLineRunner {
 		estudiante.setNombre("Dillan");
 		estudiante.setApellido("Coloma");
 		estudiante.setCedula("1751457167");
-		estudiante.setFechaNacimiento(LocalDateTime.of(1998, 8, 31, 24, 0));
+		estudiante.setHobby("futbol");
+		estudiante.setGenero("M");
+		estudiante.setFechaNacimiento(LocalDateTime.now());
 		estudiante.setCiudad("Quito");
 		
 		Estudiante estudiante1 = new Estudiante();
-		estudiante1.setNombre("Israel");
-		estudiante1.setApellido("Coloma");
+		estudiante1.setNombre("Amely");
+		estudiante1.setApellido("Pozo");
 		estudiante1.setCedula("1718674649");
-		estudiante1.setFechaNacimiento(LocalDateTime.of(1996, 8, 28, 24, 0));
-		estudiante1.setCiudad("Quito");
+		estudiante1.setHobby("ver anime");
+		estudiante1.setGenero("F");
+		estudiante1.setFechaNacimiento(LocalDateTime.now());
+		estudiante1.setCiudad("Guayaquil");
 		
 		//Insertar
+		//this.estudianteService.agregar(estudiante);
+		//this.estudianteService.agregar(estudiante1);
 		
 		//Consulta
+		System.out.println("CONSULTA POR NOMBRE");
 		Estudiante estu =  this.estudianteService.encontrarPorNombre("Dillan");
 		System.out.println(estu);
-		
+	    System.out.println();
 		//Consulta
-		/*Estudiante estu1 =  this.estudianteService.encontrarPorApellido("Coloma");
-		System.out.println(estu1);*/
+		System.out.println("CONSULTA POR APELLIDO");
+		Estudiante estu1 =  this.estudianteService.encontrarPorApellido("Pozo");
+		System.out.println(estu1);
+		System.out.println();
+		//Consulta
+		System.out.println("CONSULTA POR GENERO");
+		Estudiante estu2 = this.estudianteService.encontrarPorGenero("M");
+		System.out.println(estu2);
+		System.out.println();
+		//Consulta
+		System.out.println("CONSULTA POR CEDULA");
+		Estudiante estu3 = this.estudianteService.encontrarPorCedula("1718674649");
+		System.out.println(estu3);
+		System.out.println();
+		//Consulta
+		System.out.println("CONSULTA POR CIUDAD");
+		Estudiante estu4 = this.estudianteService.encontrarPorCiudad("Guayaquil");
+		System.out.println(estu4);
 	}
 
 }
