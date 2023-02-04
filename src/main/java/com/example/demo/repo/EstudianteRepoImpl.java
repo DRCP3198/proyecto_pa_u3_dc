@@ -9,6 +9,7 @@ import com.example.demo.modelo.Estudiante;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
 @Transactional 
@@ -71,6 +72,55 @@ public class EstudianteRepoImpl  implements IEstudianteRepo{
 	public void insertar(Estudiante estudiante) {
 		// TODO Auto-generated method stub
 		this.entityManager.persist(estudiante);
+	}
+
+	//TIPO TYPED QUERY
+	@Override
+	public Estudiante buscarPorNombreQueryType(String nombre) {
+		// TODO Auto-generated method stub
+		
+		//Declaramos un tipo TypeQuery <Especificar el tipo de dato que usare>
+		TypedQuery<Estudiante> myTypedQuery = this.entityManager.createQuery("select e from Estudiante e where e.nombre = :datoNombre", Estudiante.class);
+		myTypedQuery.setParameter("datoNombre", nombre);
+		return myTypedQuery.getSingleResult();
+	}
+
+	@Override
+	public Estudiante buscarPorNombreNamedQuery(String nombre) {
+		// TODO Auto-generated method stub
+		
+		Query myQuery = this.entityManager.createNamedQuery("Estudiante.buscarPorNombre");
+		myQuery.setParameter("datoNombre", nombre);
+		
+		return (Estudiante) myQuery.getSingleResult();
+		
+	}
+
+	//PODEMOS hacer una combinacion  con type y named Query
+	@Override
+	public Estudiante buscarPorNombreNamedQueryType(String nombre) {
+		// TODO Auto-generated method stub
+		TypedQuery<Estudiante> myTypedQuery = this.entityManager.createNamedQuery("Estudiante.buscarPorNombre", Estudiante.class);
+		myTypedQuery.setParameter("datoNombre", nombre);
+		return myTypedQuery.getSingleResult();
+	}
+
+	//Native Query
+	@Override
+	public Estudiante buscarPorNombreNativeQuery(String nombre) {
+		// TODO Auto-generated method stub
+		Query myQuery = this.entityManager.createNativeQuery("select * from estudiante where estu_nombre = :datoNombre ", Estudiante.class);
+		myQuery.setParameter("datoNombre", nombre);
+		return (Estudiante) myQuery.getSingleResult();
+		
+	}
+
+	@Override
+	public Estudiante buscarPorNombreNativeTypeNamed(String nombre) {
+		// TODO Auto-generated method stub
+		TypedQuery<Estudiante> myTypedQuery = this.entityManager.createNamedQuery("Estudiante.buscarPorNombreNative", Estudiante.class);
+		myTypedQuery.setParameter("datoNombre", nombre);
+		return myTypedQuery.getSingleResult();
 	}
 
 	

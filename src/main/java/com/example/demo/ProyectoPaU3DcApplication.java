@@ -23,7 +23,7 @@ public class ProyectoPaU3DcApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		Estudiante estudiante = new Estudiante();
+		/*Estudiante estudiante = new Estudiante();
 		estudiante.setNombre("Dillan");
 		estudiante.setApellido("Coloma");
 		estudiante.setCedula("1751457167");
@@ -39,7 +39,7 @@ public class ProyectoPaU3DcApplication implements CommandLineRunner {
 		estudiante1.setHobby("ver anime");
 		estudiante1.setGenero("F");
 		estudiante1.setFechaNacimiento(LocalDateTime.now());
-		estudiante1.setCiudad("Guayaquil");
+		estudiante1.setCiudad("Guayaquil");*/
 		
 		//Insertar
 		//this.estudianteService.agregar(estudiante);
@@ -51,24 +51,49 @@ public class ProyectoPaU3DcApplication implements CommandLineRunner {
 		System.out.println(estu);
 	    System.out.println();
 		//Consulta
-		System.out.println("CONSULTA POR APELLIDO");
+		/*System.out.println("CONSULTA POR APELLIDO");
 		Estudiante estu1 =  this.estudianteService.encontrarPorApellido("Pozo");
 		System.out.println(estu1);
-		System.out.println();
+		System.out.println();*/
 		//Consulta
-		System.out.println("CONSULTA POR GENERO");
+		/*System.out.println("CONSULTA POR GENERO");
 		Estudiante estu2 = this.estudianteService.encontrarPorGenero("M");
 		System.out.println(estu2);
-		System.out.println();
+		System.out.println();*/
 		//Consulta
-		System.out.println("CONSULTA POR CEDULA");
+		/*System.out.println("CONSULTA POR CEDULA");
 		Estudiante estu3 = this.estudianteService.encontrarPorCedula("1718674649");
 		System.out.println(estu3);
-		System.out.println();
+		System.out.println();*/
 		//Consulta
-		System.out.println("CONSULTA POR CIUDAD");
+		/*System.out.println("CONSULTA POR CIUDAD");
 		Estudiante estu4 = this.estudianteService.encontrarPorCiudad("Guayaquil");
 		System.out.println(estu4);
+		System.out.println();*/
+		//Consulta
+		System.out.println("CONSULTA POR NOMBRE Type Query");
+		Estudiante estu5 = this.estudianteService.encontrarPorNombreQueryType("Dillan");
+		System.out.println(estu5);
+		System.out.println();
+		//Consulta
+		System.out.println("CONSULTA POR NOMBRE Named Query");
+		Estudiante estu6 = this.estudianteService.encontrarPorNombreNamedQuery("Amely");
+		System.out.println(estu6);
+		System.out.println();
+		//Consulta
+		System.out.println("CONSULTA POR NOMBRE Named Query Type");
+		Estudiante estu7 = this.estudianteService.encontrarPorNombreNamedQueryType("Dillan");
+		System.out.println(estu7);
+		//Consulta
+		System.out.println("CONSULTA POR NOMBRE Native Query");
+		Estudiante estu8 = this.estudianteService.encontrarrPorNombreNativeQuery("Dillan");
+		System.out.println(estu8);
+		//Consulta
+		/*System.out.println("CONSULTA POR NOMBRE NativeTypeNamed");
+		Estudiante estu9 = this.estudianteService.encontrarPorNombreNativeTypeNamed("Dillan");
+		System.out.println(estu9);	
+		*/
+		
 	}
 
 }

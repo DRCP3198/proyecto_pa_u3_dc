@@ -10,5 +10,13 @@ public interface IEstudianteRepo {
 	public Estudiante buscarPorCedulaQuery(String cedula);
 	public Estudiante buscarPorGeneroQuery(String genero);
 	public Estudiante buscarPorCiudadQuery(String ciudad);
+	
+	public Estudiante buscarPorNombreQueryType(String nombre);
+	public Estudiante buscarPorNombreNamedQuery(String nombre);
+	public Estudiante buscarPorNombreNamedQueryType(String nombre);
+	
+	public Estudiante buscarPorNombreNativeQuery(String nombre);
+	
+	public Estudiante buscarPorNombreNativeTypeNamed(String nombre);
 
 }
