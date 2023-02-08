@@ -1,6 +1,9 @@
 package com.example.demo.repo;
 
+import java.util.List;
+
 import com.example.demo.modelo.Estudiante;
+import com.example.demo.modelo.dto.EstudianteDTO;
 
 public interface IEstudianteRepo {
 	public void insertar(Estudiante estudiante);
@@ -18,5 +21,13 @@ public interface IEstudianteRepo {
 	public Estudiante buscarPorNombreNativeQuery(String nombre);
 	
 	public Estudiante buscarPorNombreNativeTypeNamed(String nombre);
+	//************************************************
+	public List<Estudiante> buscarPorNombreQueryList(String nombre);
+	
+	public Estudiante buscarPorNombreQueryListPrimerElementoLista(String nombre);
+	
+	//***
+	public EstudianteDTO buscarPorNombreQueryTypeDTO(String nombre);
+
 
 }
