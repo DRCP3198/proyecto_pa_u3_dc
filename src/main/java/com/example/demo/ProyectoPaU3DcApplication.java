@@ -10,6 +10,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.modelo.Estudiante;
+import com.example.demo.modelo.dto.EstudianteDTO;
 import com.example.demo.service.IEstudianteService;
 
 @SpringBootApplication
@@ -94,7 +95,7 @@ public class ProyectoPaU3DcApplication implements CommandLineRunner {
 		System.out.println(estu9);	
 		*/
 		
-		List<Estudiante> estudianteLista = this.estudianteService.encontrarPorNombreQueryList("Dillan");
+		/*List<Estudiante> estudianteLista = this.estudianteService.encontrarPorNombreQueryList("Dillan");
 		
 		for (Estudiante p : estudianteLista) {
 			System.out.println(p);
@@ -102,8 +103,27 @@ public class ProyectoPaU3DcApplication implements CommandLineRunner {
 		}
 		
 		Estudiante estu10 = this.estudianteService.encontrarPorNombreQueryListPrimerElementoLista("Amely");
-		System.out.println(estu10);
+		System.out.println(estu10);*/
 		
+		List<EstudianteDTO> estu = this.estudianteService.encontrarPorNombreQueryTypeDTO("Amely");
+		for (EstudianteDTO estudianteDTO : estu) {
+			System.out.println(estudianteDTO);
+			
+		}
+		System.out.println();
+		System.out.println("Criteria Api Query");
+		List<Estudiante> estudianteCriterial = this.estudianteService.encontrarPorNombreCriterial("Dillan");
+		for (Estudiante criterial : estudianteCriterial) {
+			System.out.println(criterial);
+			
+		}
+		System.out.println();
+		System.out.println("Criteria Api Dinamico");
+		List<Estudiante> estudianteDinamico = this.estudianteService.encontrarPorNombreCriterialAndOr("Dillan", "Coloma", "F");
+		for (Estudiante criterial : estudianteDinamico) {
+			System.out.println(criterial);
+			
+		}
 	}
 
 }
