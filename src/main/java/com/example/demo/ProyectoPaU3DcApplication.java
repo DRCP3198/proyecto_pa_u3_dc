@@ -45,8 +45,8 @@ public class ProyectoPaU3DcApplication implements CommandLineRunner {
 		estudiante1.setCiudad("Guayaquil");
 		
 		//Insertar
-		/*this.estudianteService.agregar(estudiante);
-		this.estudianteService.agregar(estudiante1);*/
+		//this.estudianteService.agregar(estudiante);
+		//this.estudianteService.agregar(estudiante1);
 		
 		//Consulta
 		/*
@@ -105,7 +105,7 @@ public class ProyectoPaU3DcApplication implements CommandLineRunner {
 		Estudiante estu10 = this.estudianteService.encontrarPorNombreQueryListPrimerElementoLista("Amely");
 		System.out.println(estu10);*/
 		
-		List<EstudianteDTO> estu = this.estudianteService.encontrarPorNombreQueryTypeDTO("Amely");
+		/*List<EstudianteDTO> estu = this.estudianteService.encontrarPorNombreQueryTypeDTO("Amely");
 		for (EstudianteDTO estudianteDTO : estu) {
 			System.out.println(estudianteDTO);
 			
@@ -123,7 +123,14 @@ public class ProyectoPaU3DcApplication implements CommandLineRunner {
 		for (Estudiante criterial : estudianteDinamico) {
 			System.out.println(criterial);
 			
-		}
+		}*/
+		int b =this.estudianteService.borrarPorApellido("Pozo");
+		System.out.println(b);
+		
+		int a = this.estudianteService.modificarPorApellido("Coloma", "Renato");
+		System.out.println(a);
+		
+		
 	}
 
 }

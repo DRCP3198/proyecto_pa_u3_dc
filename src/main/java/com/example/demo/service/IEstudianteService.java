@@ -36,4 +36,10 @@ public interface IEstudianteService {
 	public List<Estudiante> encontrarPorNombreCriterial(String nombre);
 	
 	public List<Estudiante> encontrarPorNombreCriterialAndOr(String nombre,String apellido,String bandera);
+	
+	
+	//Metodos nuevos para actualizar por campos especificos
+	
+	public int borrarPorApellido(String apellido);
+	public int modificarPorApellido(String apellido,String nombre);
 }

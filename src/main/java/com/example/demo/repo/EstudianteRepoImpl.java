@@ -216,11 +216,11 @@ public class EstudianteRepoImpl implements IEstudianteRepo {
 		Predicate predicadoFinal = null;
 		if (genero.equals("M")) {
 			// Predicado de AND
-			predicadoFinal = myBuilder.or(p1, p2);
+			predicadoFinal = myBuilder.and(p1, p2);
 
 		} else {
 			// Predicado de OR
-			predicadoFinal = myBuilder.and(p1, p2);
+			predicadoFinal = myBuilder.or(p1, p2);
 		}
 		
 		myQuery.select(miTablaFrom).where(predicadoFinal);
@@ -228,6 +228,25 @@ public class EstudianteRepoImpl implements IEstudianteRepo {
 
 		return myTypedQuery.getResultList();
 
+	}
+    //METODOS  NUEVOS
+	@Override
+	public int eliminarPorApellido(String apellido) {
+		// TODO Auto-generated method stub
+		//DELETE from estudiante where  estu_apellido = 'Teran'
+		Query query = this.entityManager.createQuery("DELETE from Estudiante e where e.apellido = :datoApellido");
+		query.setParameter("datoApellido", apellido);
+		return query.executeUpdate(); //executeUpadate
+	}
+
+	@Override
+	public int actualizarPorApellido(String apellido, String nombre) {
+		// TODO Auto-generated method stub
+		//UPDATE estudiante set estu_nombre = 'Edison' where estu_apellido = 'Cayambe'
+		Query query = this.entityManager.createQuery("UPDATE Estudiante e SET e.nombre = :datoNombre where e.apellido = :datoApellido");
+		query.setParameter("datoNombre", nombre);
+		query.setParameter("datoApellido", apellido);
+		return query.executeUpdate(); //El execute Update me retorna un ENTERO que es la cantidad de parametros que me modifica
 	}
 
 }

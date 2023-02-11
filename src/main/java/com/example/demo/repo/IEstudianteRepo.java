@@ -34,5 +34,10 @@ public interface IEstudianteRepo {
 	
 	public List<Estudiante> buscarPorNombreCriterialAndOr(String nombre,String apellido,String bandera);
 	
+	//Metodos nuevos para actualizar por campos especificos
+	
+	public int eliminarPorApellido(String apellido);
+	public int actualizarPorApellido(String apellido,String nombre);
+	
 
 }
