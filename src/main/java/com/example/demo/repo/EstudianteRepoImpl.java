@@ -249,4 +249,39 @@ public class EstudianteRepoImpl implements IEstudianteRepo {
 		return query.executeUpdate(); //El execute Update me retorna un ENTERO que es la cantidad de parametros que me modifica
 	}
 
+	@Override
+	public int eliminarPorGenero(String genero) {
+		// TODO Auto-generated method stub
+		Query query = this.entityManager.createQuery("DELETE from Estudiante e where e.genero = :datoGenero");
+		query.setParameter("datoGenero", genero);
+		return query.executeUpdate(); //executeUpadate
+	}
+
+	@Override
+	public int eliminarPorCedula(String cedula) {
+		// TODO Auto-generated method stub
+		Query query = this.entityManager.createQuery("DELETE from Estudiante e where e.cedula = :datoCedula");
+		query.setParameter("datoCedula", cedula);
+		return query.executeUpdate(); //executeUpadate
+	}
+
+	@Override
+	public int actualizarPorCedula(String cedula, String ciudad) {
+		// TODO Auto-generated method stub
+		Query query = this.entityManager.createQuery("UPDATE Estudiante e SET e.ciudad = :datoCiudad where e.cedula = :datoCedula");
+		query.setParameter("datoCiudad", ciudad);
+		query.setParameter("datoCedula", cedula);
+		return query.executeUpdate(); //El execute Update me retorna un ENTERO que es la cantidad de parametros que me modifica
+	}
+
+	@Override
+	public int actualizarPorCiudad(String ciudad, String hobby) {
+		// TODO Auto-generated method stub
+		
+		Query query = this.entityManager.createQuery("UPDATE Estudiante e SET e.hobby =:datoHobby where e.ciudad = :datoCiudad");
+		query.setParameter("datoHobby", hobby);
+		query.setParameter("datoCiudad", ciudad);
+		return query.executeUpdate();
+	}
+
 }

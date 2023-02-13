@@ -118,4 +118,24 @@ public class EstudianteServiceImpl implements IEstudianteService{
 		// TODO Auto-generated method stub
 		return this.estudianteRepo.actualizarPorApellido(apellido, nombre);
 	}
+	@Override
+	public int borrarPorGenero(String genero) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.eliminarPorGenero(genero);
+	}
+	@Override
+	public int borrarPorCedula(String cedula) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.eliminarPorCedula(cedula);
+	}
+	@Override
+	public int modificarPorCedula(String cedula, String ciudad) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.actualizarPorCedula(cedula, ciudad);
+	}
+	@Override
+	public int modificarPorCiudad(String ciudad, String hobby) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepo.actualizarPorCiudad(ciudad, hobby);
+	}
 }

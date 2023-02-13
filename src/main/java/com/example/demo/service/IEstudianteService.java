@@ -42,4 +42,11 @@ public interface IEstudianteService {
 	
 	public int borrarPorApellido(String apellido);
 	public int modificarPorApellido(String apellido,String nombre);
+	
+	//DEBER
+	public int borrarPorGenero(String genero);
+	public int borrarPorCedula(String cedula);
+	
+	public int modificarPorCedula(String cedula,String ciudad);
+	public int modificarPorCiudad(String ciudad,String hobby);
 }

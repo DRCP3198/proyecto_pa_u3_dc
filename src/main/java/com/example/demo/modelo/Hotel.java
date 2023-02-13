@@ -27,6 +27,12 @@ public class Hotel {
 	private String nombre;
 	@Column(name="hote_direccion")
 	private String direccion;
+	
+	@Column(name="hote_ciudad")
+	private String ciudad;
+	
+	@Column(name="hote_telefono")
+	private String telefono;
 
 	//El hotel tiene muchas habitaciones 
 	//@OneToMany(mappedBy = "hotel", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
@@ -66,6 +72,23 @@ public class Hotel {
 
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
+	}
+	
+
+	public String getCiudad() {
+		return ciudad;
+	}
+
+	public void setCiudad(String ciudad) {
+		this.ciudad = ciudad;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
 	}
 
 	@Override

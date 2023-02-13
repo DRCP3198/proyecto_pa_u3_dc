@@ -38,6 +38,12 @@ public interface IEstudianteRepo {
 	
 	public int eliminarPorApellido(String apellido);
 	public int actualizarPorApellido(String apellido,String nombre);
+	//METODOS DEBER
+	public int eliminarPorGenero(String genero);
+	public int eliminarPorCedula(String cedula);
+	
+	public int actualizarPorCedula(String cedula,String ciudad);
+	public int actualizarPorCiudad(String ciudad,String hobby);
 	
 
 }

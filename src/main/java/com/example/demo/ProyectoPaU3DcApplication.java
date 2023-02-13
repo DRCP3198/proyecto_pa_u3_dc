@@ -27,26 +27,48 @@ public class ProyectoPaU3DcApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		Estudiante estudiante = new Estudiante();
-		estudiante.setNombre("Dillan");
-		estudiante.setApellido("Coloma");
-		estudiante.setCedula("1751457167");
-		estudiante.setHobby("futbol");
+		estudiante.setNombre("Israel");
+		estudiante.setApellido("Lincon");
+		estudiante.setCedula("17514571691");
+		estudiante.setHobby("voley");
 		estudiante.setGenero("M");
 		estudiante.setFechaNacimiento(LocalDateTime.now());
-		estudiante.setCiudad("Quito");
+		estudiante.setCiudad("Cotopaxi");
 		
 		Estudiante estudiante1 = new Estudiante();
-		estudiante1.setNombre("Amely");
-		estudiante1.setApellido("Pozo");
-		estudiante1.setCedula("1718674649");
-		estudiante1.setHobby("ver anime");
+		estudiante1.setNombre("Mariana");
+		estudiante1.setApellido("Madera");
+		estudiante1.setCedula("100200300");
+		estudiante1.setHobby("bailar");
 		estudiante1.setGenero("F");
 		estudiante1.setFechaNacimiento(LocalDateTime.now());
-		estudiante1.setCiudad("Guayaquil");
+		estudiante1.setCiudad("Galapagos");
+		
+		Estudiante estudiante2 = new Estudiante();
+		estudiante2.setNombre("Anita");
+		estudiante2.setApellido("Perez");
+		estudiante2.setCedula("100200400");
+		estudiante2.setHobby("correr");
+		estudiante2.setGenero("F");
+		estudiante2.setFechaNacimiento(LocalDateTime.now());
+		estudiante2.setCiudad("San Elena");
+		
+		Estudiante estudiante3 = new Estudiante();
+		estudiante3.setNombre("Rosa");
+		estudiante3.setApellido("Luan");
+		estudiante3.setCedula("100200500");
+		estudiante3.setHobby("nadar");
+		estudiante3.setGenero("F");
+		estudiante3.setFechaNacimiento(LocalDateTime.now());
+		estudiante3.setCiudad("Carchi");
+		
 		
 		//Insertar
-		//this.estudianteService.agregar(estudiante);
-		//this.estudianteService.agregar(estudiante1);
+		/*this.estudianteService.agregar(estudiante);
+		this.estudianteService.agregar(estudiante1);
+		this.estudianteService.agregar(estudiante2);*/
+		//this.estudianteService.agregar(estudiante3);
+		
 		
 		//Consulta
 		/*
@@ -124,12 +146,24 @@ public class ProyectoPaU3DcApplication implements CommandLineRunner {
 			System.out.println(criterial);
 			
 		}*/
-		int b =this.estudianteService.borrarPorApellido("Pozo");
+		/*int b =this.estudianteService.borrarPorApellido("Pozo");
 		System.out.println(b);
 		
 		int a = this.estudianteService.modificarPorApellido("Coloma", "Renato");
-		System.out.println(a);
+		System.out.println(a);*/
 		
+		//BORRAR
+		
+		int b = this.estudianteService.borrarPorApellido("Coloma");
+		System.out.println("Registros elimanos por Apellido Coloma: " +b);
+		int b1 = this.estudianteService.borrarPorCedula("100200500");
+		System.out.println("Registros elimanos con cedula 100200500: "+b1);
+		
+		//ACTUALIZAR
+		int a = this.estudianteService.modificarPorCedula("100200400", "Loja");
+		System.out.println("Registros actualizado por cedula la ciudad: " +a);
+		int a1 = this.estudianteService.modificarPorCiudad("Cotopaxi", "caminatas Nocturnas");
+		System.out.println("Registros actualizados por ciudad: "+a1);
 		
 	}
 
