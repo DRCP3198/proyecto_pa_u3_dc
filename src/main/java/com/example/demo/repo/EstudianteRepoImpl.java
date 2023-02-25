@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.modelo.Estudiante;
 import com.example.demo.modelo.dto.EstudianteDTO;
 
+import aj.org.objectweb.asm.Type;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;
@@ -169,6 +170,7 @@ public class EstudianteRepoImpl implements IEstudianteRepo {
 		// TODO Auto-generated method stub
 		// 1.Construimos mi fabrica
 		CriteriaBuilder myBuilder = this.entityManager.getCriteriaBuilder();
+		
 		// 2.Tenemos que especificar el tipo de retorno de mi SQL "Query"
 		CriteriaQuery<Estudiante> myQuery = myBuilder.createQuery(Estudiante.class);
 		// Aqui empezamos a crear el SQL como tal, se define la tabla destino "from",
@@ -189,6 +191,23 @@ public class EstudianteRepoImpl implements IEstudianteRepo {
 
 		return myTypedQuery.getResultList();
 	}
+	/*public List<Estudiante> buscarPorNombreCriterial(String apellido) {
+		 CriteriaBuilder mifabrica = this.entityManager.getCriteriaBuilder();
+		 
+		 CriteriaQuery<Estudiante> myCriteriaQuery = mifabrica.createQuery(Estudiante.class);
+		 
+		 Root<Estudiante> root =  myCriteriaQuery.from(Estudiante.class);
+		 
+		 //Condicion Where en critery api es el Predicado
+		 Predicate condicion1 = mifabrica.equal(root.get("apellido"), apellido);
+		 myCriteriaQuery.select(root).where(condicion1);
+		 
+		 TypedQuery<Estudiante> query = this.entityManager.createQuery(myCriteriaQuery);
+		 return query.getResultList();
+		 
+		 
+	}*/
+	
 
 	@Override
 	public List<Estudiante> buscarPorNombreCriterialAndOr(String nombre, String apellido, String genero) {

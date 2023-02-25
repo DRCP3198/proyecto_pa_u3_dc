@@ -82,45 +82,37 @@ public class ProyectoPaU3DcApplication implements CommandLineRunner {
 		}
 
 		List<Hotel> hotel1 = this.hotelService.encontrarHotelFetchJoin("VIP");
+		for (Hotel hote : hotel1) {
+			System.out.println(hote.getHabitaciones());
+		}
 
 		// LEFT JOIN SIN PARAMETRO
 		System.out.println("LEFT JOIN HOTEL");
 		List<Hotel> hotel2 = this.hotelService.encontrarHotelOuterLetfJoin();
 		for (Hotel hot : hotel2) {
 			System.out.println(hot.getNombre());
-			/*
-			 * for (Habitacion ha : hot.getHabitaciones()) {
-			 * System.out.println(ha.getNumero()); }
-			 */
+			
 		}
-		// LEFT JOIN SIN PARAMETRO\
-		System.out.println("LEFT JOIN HOTEL");
-		List<Hotel> hotel3 = this.hotelService.encontrarHotelOuterLetfJoin();
+		// LEFT JOIN SIN PARAMETRO
+		System.out.println("RIGH JOIN HOTEL");
+		List<Hotel> hotel3 = this.hotelService.encontrarHotelOuterRightJoin();
 		for (Hotel hot : hotel3) {
-			System.out.println(hot.getNombre());
-			/*
-			 * for (Habitacion ha : hot.getHabitaciones()) {
-			 * System.out.println(ha.getNumero()); }
-			 */
+			//System.out.println(hot.getHabitaciones());
+			System.out.println(hot != null ? hot.getNombre() : null);
+			
 		}
 
 		System.out.println("LEFT JOIN HABITACION");
 		List<Habitacion> listaH = this.habitacionService.buscarHotelOuterLetfJoin();
 		for (Habitacion ha : listaH) {
 			System.out.println(ha != null ? ha.getNumero() : null);
-			/*
-			 * for (Habitacion ha : hot.getHabitaciones()) {
-			 * System.out.println(ha.getNumero()); }
-			 */
+		
 		}
 		System.out.println("RIGHT JOIN HABITACION");
 		List<Habitacion> listaH1 = this.habitacionService.buscarHotelOuterRightJoin();
 		for (Habitacion ha : listaH1) {
 			System.out.println(ha != null ? ha.getNumero() : null);
-			/*
-			 * for (Habitacion ha : hot.getHabitaciones()) {
-			 * System.out.println(ha.getNumero()); }
-			 */
+			System.out.println(ha != null ? ha.getHotel() : null);
 		}
 
 	}

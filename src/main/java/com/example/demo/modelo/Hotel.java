@@ -21,6 +21,8 @@ public class Hotel {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "hote_seq")
 	//Buena practica el nombre se le coloca el mismo de la secuencia
 	@SequenceGenerator(name ="hote_seq",sequenceName = "hote_seq",allocationSize = 1) 
+	
+
 	@Column(name="hote_id")
 	private Integer id;
 	@Column(name="hote_nombre")
@@ -61,6 +63,8 @@ public class Hotel {
 	public String getNombre() {
 		return nombre;
 	}
+	
+
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -93,8 +97,7 @@ public class Hotel {
 
 	@Override
 	public String toString() {
-		return "Hotel [id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", habitaciones=" + habitaciones
-				+ "]";
+		return "Hotel [id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + "]";
 	}
 	
 	

@@ -73,11 +73,6 @@ public class HotelRepoImpl implements IHotelRepo {
 		//PARA EL ERROR DEL LAZY
 		List<Hotel> listaHoteles =myQuery.getResultList();
 		
-		//ME RETORNA BAJO DEMANDA, le decimos que en un futuro vamos a acceder a nuestras habitaciones
-		/*for (Hotel hotel : listaHoteles) {
-			hotel.getHabitaciones().size();
-			
-		}*/
 		return listaHoteles;
 	}
 
@@ -128,11 +123,8 @@ public class HotelRepoImpl implements IHotelRepo {
 		// TODO Auto-generated method stub
 		TypedQuery<Hotel> myQuery = this.entityManager.createQuery(
 				"SELECT h from Hotel h RIGHT JOIN  h.habitaciones ha ", Hotel.class);
-        List<Hotel> miLista =myQuery.getResultList();
-        for (Hotel h : miLista) {
-			h.getHabitaciones().size();
-		}
-		return miLista;
+         
+		return myQuery.getResultList() ;
 
 	}
 

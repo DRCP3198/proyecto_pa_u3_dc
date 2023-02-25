@@ -20,29 +20,13 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "estudiante")
-/*@NamedQuery(name = "Estudiante.buscarPorNombre", query = "select e from Estudiante e where e.nombre = :datoNombre")
-@NamedQuery(name = "Estudiante.buscarPorNombre1", query = "select e from Estudiante e where e.nombre = :datoNombre")
-@NamedQuery(name = "Estudiante.buscarPorNombre2", query = "select e from Estudiante e where e.nombre = :datoNombre")*/
 
 @NamedQueries({
 		@NamedQuery(name = "Estudiante.buscarPorNombre", query = "select e from Estudiante e where e.nombre = :datoNombre"),
 		@NamedQuery(name = "Estudiante.buscarPorNombre1", query = "select e from Estudiante e where e.nombre = :datoNombre"),
 		@NamedQuery(name = "Estudiante.buscarPorNombre2", query = "select e from Estudiante e where e.nombre = :datoNombre") })
-//Como hago para declarar varios NamedQuery
 
-/*
- * 9@NamedNativeQuery(name = "Estudiante.buscarPorNombreNative", query =
- * "select * from estudiante where estu_nombre = :datoNombre", resultClass =
- * Estudiante.class)
- * 
- * @NamedNativeQuery(name = "Estudiante.buscarPorNombreNative1", query =
- * "select * from estudiante where estu_nombre = :datoNombre", resultClass =
- * Estudiante.class)
- * 
- * @NamedNativeQuery(name = "Estudiante.buscarPorNombreNative2", query =
- * "select * from estudiante where estu_nombre = :datoNombre", resultClass =
- * Estudiante.class)
- */
+
 //Me permmmite poner un arreglo 
 @NamedNativeQueries({
 		@NamedNativeQuery(name = "Estudiante.buscarPorNombreNative", query = "select * from estudiante where estu_nombre = :datoNombre", resultClass = Estudiante.class),
